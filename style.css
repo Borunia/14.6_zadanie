@@ -1,0 +1,12 @@
+* {
+	text-align: center;
+}
+
+button {
+	margin: 15px 5px;
+	padding: 10px;
+}
+
+span{
+    margin-right: 15px;
+}
