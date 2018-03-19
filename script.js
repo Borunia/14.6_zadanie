@@ -4,7 +4,6 @@ var Counter = React.createClass({
             counter: 0
         };
     },
-
     increment: function() {
         this.setState({
             counter: this.state.counter + 1
@@ -16,6 +15,28 @@ var Counter = React.createClass({
         });
     },
 
+    getDefaultProps: function () {
+        console.log('getDefaultProps - for initialization props')
+    },
+    componentWillMount: function () {
+        console.log('componentWillMount; counter: '+this.state.counter+3)
+    },
+    componentWillReceiveProps: function () {
+        console.log('componentWillReceiveProps')
+    },
+    shouldComponentUpdate: function () {
+        console.log('shouldComponentUpdate')
+    },
+    componentWillUpdate: function () {
+        console.log('componentWillUpdate')
+    },
+    componentDidUpdate: function () {
+        console.log('componentDidUpdate ')
+    },
+    componentWillUnmount: function () {
+        console.log('componentWillUnmount')
+    },
+    
     render: function() {
         return React.createElement('div', {},
             React.createElement('span', {}, 'Licznik ' + this.state.counter),
@@ -25,8 +46,10 @@ var Counter = React.createClass({
     }
 });
 
-var element = React.createElement(Counter);
-var element2 = React.createElement(Counter);
+var element = React.createElement('div', {className: 'counters'},
+		React.createElement('h1', {}, 'Counters'),
+		React.createElement(Counter),
+		React.createElement(Counter)
+	);
 
 ReactDOM.render(element, document.getElementById('app'));
-ReactDOM.render(element, document.getElementById('app2'));
